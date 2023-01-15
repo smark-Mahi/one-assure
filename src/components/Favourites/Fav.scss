@@ -1,0 +1,23 @@
+.movie-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-gap: 15px;
+  }
+  .button {
+    background: #26394d ;
+    cursor: pointer;
+    width:138px;
+    height:35px;
+    border:none;
+    border-radius:18px;
+    transition: all 0.3s;
+  z-index:999;
+    &:hover {
+      transform: scale(1.1);
+      transition: all 0.3s;
+      background-color:rgba(31, 31, 177, 0.932);
+    }
+  }
+.movie-list{
+  margin: 20px 0px;
+}

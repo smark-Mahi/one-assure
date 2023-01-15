@@ -1,0 +1,55 @@
+@import "../../common/colors.scss";
+
+.header {
+  background-color: $secondary-color;
+  height: 72px;
+  padding: 0px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .search {
+    width:188px;
+    height:39px;
+    outline:none;
+    border-radius:18px;
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.1);
+      transition: all 0.3s;
+    }
+  }
+}
+.count{
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background-color:rgba(0, 0, 0, 0.822);
+  position:absolute;
+  right:60px;
+.count ,span{
+  color:white;
+  font-size:15px;
+  position:absolute;
+  right:5px;
+}
+}
+.logo {
+  color: $font-primary;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.user-image,
+.display{
+  visibility:visible;
+  transition:0.1s all ease-in;
+  color:white;
+}
+.none{
+  visibility:hidden;
+
+}
+.user-image img {
+  width: 38px;
+  height: 38px;
+}

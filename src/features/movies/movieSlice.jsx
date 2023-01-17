@@ -45,9 +45,12 @@ const movieSlice = createSlice({
     removeSelectedMovieOrShow: (state) => {
       state.selectMovieOrShow = {};
     },
-    search:(state,action)=>{
+    moviessearch:(state,action)=>{
       state.movies.Search=action.payload
       console.log(state.value)
+  },
+  showssearch:(state,action)=>{
+    state.shows.Search=action.payload
   }
   },
   extraReducers: {
@@ -72,7 +75,7 @@ const movieSlice = createSlice({
   },
 });
 
-export const { removeSelectedMovieOrShow,search } = movieSlice.actions;
+export const { removeSelectedMovieOrShow,moviessearch,showssearch } = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllShows = (state) => state.movies.shows;
 export const getSelectedMovieOrShow = (state) => state.movies.selectMovieOrShow;

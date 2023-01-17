@@ -3,14 +3,18 @@ import { getAllcarditems,deletecart } from "../../features/movies/addToFavourite
 import { useSelector,useDispatch } from "react-redux";
 import MovieCard from "../MovieCard/MovieCard";
 import "./Fav.scss";
+import 'react-toastify/dist/ReactToastify.css'
+import {ToastContainer,toast} from 'react-toastify'
 const Fav= () => {
   const carditems = useSelector(getAllcarditems);
   console.log(carditems,'addcart')
   const dispatch=useDispatch()
   function handledelete(imdbID){
+    toast.success('Deleted successfully',{position:'top-center'})
     console.log(imdbID)
     dispatch(deletecart(imdbID
-    ))}
+    ))
+  }
    return (
     <div className="movie-list">
     {carditems.value.length===0  && <h2>Card is Empty......</h2>}
@@ -23,6 +27,7 @@ const Fav= () => {
         )
     }
     </div>
+    <ToastContainer/>
     </div>
   );
 };

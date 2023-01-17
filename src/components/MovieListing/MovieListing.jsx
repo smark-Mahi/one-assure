@@ -5,6 +5,8 @@ import MovieCard from "../MovieCard/MovieCard";
 import "./MovieListing.scss";
 import {useDispatch} from 'react-redux'
 import { addcart } from "../../features/movies/addToFavourites";
+import 'react-toastify/dist/ReactToastify.css'
+import {ToastContainer,toast} from 'react-toastify'
 const MovieListing = () => {
   const movies = useSelector(getAllMovies);
   console.log(movies,'movies')
@@ -12,7 +14,9 @@ const MovieListing = () => {
   const dispatch=useDispatch()
   function handleadd(item){
     dispatch(addcart(item
-    ))}
+    ))
+    toast.success('Added successfully',{position:'top-center'})
+  }
   let renderMovies,
     renderShows = "";
   renderMovies =
@@ -41,13 +45,16 @@ const MovieListing = () => {
     <div className="movie-wrapper">
       <div className="movie-list">
         <h2>Movies</h2>
+        {movies.Search?.length===0  && <h1 style={{textAlign:'center'}}>Not Found...</h1>}
         <div className="movie-container">{renderMovies}
         </div>
       </div>
       <div className="show-list">
         <h2>Shows</h2>
+        {shows.Search?.length===0  && <h1 style={{textAlign:'center'}}>Not Found...</h1>}
         <div className="movie-container">{renderShows}</div>
       </div>
+      <ToastContainer/>
     </div>
   );
 };

@@ -15,13 +15,13 @@ const Header = () => {
   const carditems = useSelector(getAllcarditems);
   console.log(hover)
   const dispatch=useDispatch()
-  //For movies and shows
+  //For movies and shows-Debouncing
   React.useEffect(()=>{
     const getdata=setTimeout(()=>{
-      var moviesfillterresult=movies.Search.filter(cards=>cards.Title.toLowerCase().includes(searchh) || cards.Year.includes(searchh))
+      var moviesfillterresult=movies.Search.filter(cards=>cards.Title.toLowerCase().includes(searchh.toLowerCase()) || cards.Year.includes(searchh))
       dispatch(moviessearch(moviesfillterresult))
       if(moviesfillterresult.length===0){
-        let showsfillterresult=shows.Search.filter(cards=>cards.Title.toLowerCase().includes(searchh) || cards.Year.includes(searchh))
+        let showsfillterresult=shows.Search.filter(cards=>cards.Title.toLowerCase().includes(searchh.toLowerCase()) || cards.Year.includes(searchh))
         console.log(showsfillterresult)
         dispatch(showssearch(showsfillterresult))
       }
